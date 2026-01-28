@@ -20,6 +20,19 @@ GOOD_FIRST_ISSUE_LABELS = {
     "starter bug"
 }
 
+def validate_repo(owner: str, repo: str, token: str) -> bool:
+    """Checks if a repository exists on GitHub and is accessible."""
+    url = f"{GITHUB_API_URL}/{owner}/{repo}"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    try:
+        response = requests.get(url, headers=headers, timeout=5)
+        return response.status_code == 200
+    except:
+        return False
+
 class GitHubAPIError(Exception):
     pass
 

@@ -4,6 +4,9 @@ from datetime import datetime, timedelta
 import database
 import github_client
 
+# Expose for app.py
+validate_repo = github_client.validate_repo
+
 def get_github_token():
     # Priority: 1. Streamlit Secrets, 2. Environment Variable
     import streamlit as st
