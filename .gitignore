@@ -1,0 +1,12 @@
+# Database
+*.db
+*.sqlite3
+
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
